@@ -122,9 +122,84 @@ p {
     width: 100%;
     margin: 0 auto;
 }
+section{
+    height: 100%;
+    padding: 5%;
+    margin-top: 1px;
+}
 
 /*  global classes */
 /* start btn */
+.btn-countiner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+}
+
+.btn {
+    position: relative;
+    padding: 20px 50px;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 200px;
+    overflow: hidden;
+}
+
+.btn span {
+    position: relative;
+    z-index: 1;
+    color: var(--Papaya-whip);
+    font-size: 18px;
+    letter-spacing: 4px;
+}
+
+.btn .liquid {
+    position: absolute;
+    left: 0;
+    top: -80px;
+    width: 200px;
+    height: 200px;
+
+    background: #4973ff;
+    box-shadow: inset 0 0 12.5px rgba(0, 0, 0, .5);
+    transition: .5s;
+}
+
+.btn .liquid:before,
+.btn .liquid::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -75%);
+}
+
+.btn .liquid:before {
+    border-radius: 45%;
+    background-color: rgba(20, 20, 20, 1);
+    animation: water 10s linear infinite;
+}
+
+.btn .liquid::after {
+    border-radius: 40%;
+    background-color: rgba(20, 20, 20, .5);
+    animation: water 10s linear infinite;
+}
+
+@keyframes water {
+    0% {
+        transform: translate(-50%, -75%)rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -75%)rotate(360deg);
+    }
+}
 
 /* end btn */
 
@@ -245,10 +320,12 @@ header
 
 .img {
     height: 100%;
+    background-image: url(../img/dragon.png);
+    background-repeat: no-repeat;
 }
 
-.about {
-    padding: 50px;
+.talk h1 {
+    text-align: center;
 }
 
 @media screen and (max-width: 800px) {
@@ -258,6 +335,7 @@ header
         justify-content: center;
         position: relative;
         background-image: url(../img/dragon.png);
+        background-repeat: no-repeat;
     }
 
     .talk {
@@ -283,3 +361,131 @@ header
         display: none;
     }
 }
+
+/* start teem */
+.teem-membar {
+    background-color: #003049;
+}
+
+.title {
+    display: inline-block;
+    color: var(--Papaya-whip);
+    font-size: 55px;
+    border-bottom: 3px solid #f0f;
+    text-shadow: 2px 2px 10px #ff00ff;
+    text-transform: capitalize;
+    margin-bottom: 50px;
+}
+
+.persons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.person {
+    overflow: hidden;
+    position: relative;
+    height: 400px;
+    width: 25%;
+    min-width: 300px;
+    border: 4px solid var(--Papaya-whip);
+    border-radius: 10px 100px 30px;
+    background-image: url(../img/m1.jpg);
+    background-size: 200%;
+    background-repeat: no-repeat;
+    transition: ease-out 1.5s;
+}
+
+.person:hover {
+    box-shadow: 10px 10px 30px var(--Papaya-whip);
+}
+
+.person::before {
+    content: attr(data-work);
+    position: absolute;
+    background-color: rgb(0 0 0 / 78%);
+    color: var(--Papaya-whip);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    transition: .7s;
+    font-size: 1.5rem;
+    transform: translateX(calc(-100% - 5px));
+}
+
+.person:hover::before {
+    transform: translateX(0);
+}
+
+.social {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.person a {
+    position: absolute;
+    z-index: -1;
+    border: 2px solid black;
+    border-radius: 50%;
+    top: 300px;
+}
+
+.social a:first-child {
+    left: 40px;
+    transition: ease-out 0.3s;
+}
+
+.social a:nth-child(2) {
+    left: 110px;
+    transition: ease-out 0.3s;
+}
+
+.social a:nth-child(3) {
+    left: 180px;
+    transition: ease-out 0.3s;
+}
+
+.social a:nth-child(4) {
+    left: 250px;
+    transition: ease-out 0.3s;
+}
+
+.person:hover .social a {
+    border: 2px solid var(--Papaya-whip);
+    z-index: 1;
+}
+
+/* end teem */
+
+/* start our work */
+.our-work{
+    background-color: var(--dark-red);
+}
+
+.page{
+    hight: 100px;
+    width: 20%;
+    min-width: 200px;
+}
+/* end our work */
+
+/* start footer */
+footer {
+    background-color: black;
+    color: white;
+    padding: 30px 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+footer span {
+    font-weight: bold;
+    color: #ffd900;
+}
+/* end footer */
